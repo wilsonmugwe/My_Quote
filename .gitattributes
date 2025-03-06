@@ -1,10 +1,8 @@
-# Force GitHub to detect Dart
-*.ruby linguist-detectable=true
+# Force GitHub to detect Ruby as the main language
+*.rb linguist-detectable=true
 
-# Ignore CMake files
-CMakeLists.txt linguist-detectable=false
-*.cmake linguist-detectable=false
-
-# Also ignore C++ files if needed
+# Ignore HTML, CSS, and other files from affecting the language stats
 *.html linguist-detectable=false
-*.h linguist-detectable=false
+*.css linguist-detectable=false
+*.js linguist-detectable=false
+*.erb linguist-detectable=false
