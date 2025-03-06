@@ -1,8 +1,1 @@
-# Force GitHub to detect Ruby as the main language
-*.rb linguist-detectable=true
 
-s
-*.html linguist-detectable=false
-*.css linguist-detectable=true
-*.js linguist-detectable=true
-*.erb linguist-detectable=true
