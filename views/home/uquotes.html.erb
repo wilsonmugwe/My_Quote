@@ -1,0 +1,7 @@
+<p style="color: green"><%= notice %></p>
+<h3>Your Quotes</h3>
+<ul>
+  <% @quotes.each do |quote| %>
+    <li><%= quote.quote %></li> 
+  <% end %>
+</ul>

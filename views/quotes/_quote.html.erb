@@ -1,0 +1,57 @@
+<div id="<%= dom_id quote %>" class="quote">
+  <p>
+    <strong>Quote:</strong>
+    <span class="quote-text"><%= quote.quote %></span>
+  </p>
+  <p>
+    <strong>Collected by:</strong>
+    <span class="quote-user"><%= quote.user&.fname || 'Unknown' %></span>
+  </p>
+
+  <% if quote.philosopher.present? %>
+    <p>
+      <strong>Philosopher:</strong>
+      <span class="quote-philosopher">
+        <%= "#{quote.philosopher.fname} #{quote.philosopher.lname}" %>
+      </span>
+    </p>
+    <p>
+      <strong>Birth Year:</strong>
+      <span class="quote-birth-year"><%= quote.philosopher.birth_year %></span>
+    </p>
+    <% if quote.philosopher.death_year.present? %>
+      <p>
+        <strong>Death Year:</strong>
+        <span class="quote-death-year"><%= quote.philosopher.death_year %></span>
+      </p>
+    <% end %>
+    <% if quote.philosopher.biography.present? %>
+      <p>
+        <strong>Biography:</strong>
+        <span class="quote-biography"><%= quote.philosopher.biography %></span>
+      </p>
+    <% end %>
+  <% end %>
+
+  <p>
+    <strong>Publication Year:</strong>
+    <span class="quote-publication"><%= quote.publication || 'Unknown' %></span>
+  </p>
+
+  <p>
+    <strong>Is public:</strong>
+    <span class="quote-is-public"><%= quote.is_public ? 'Yes' : 'No' %></span>
+  </p>
+
+  <p>
+    <strong>Comments:</strong>
+    <span class="quote-comments"><%= quote.comments || 'No comments' %></span>
+  </p>
+
+  <p>
+    <%= link_to "Show this quote", quote_path(quote), class: "btn btn-primary" %>
+    <% if current_user && (current_user == quote.user || current_user.is_admin) %>
+      <%= link_to "Delete", quote_path(quote), method: :delete, data: { confirm: "Are you sure you want to delete this quote?" }, class: "btn btn-danger" %>
+    <% end %>
+  </p>
+</div>

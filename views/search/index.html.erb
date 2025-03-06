@@ -1,0 +1,7 @@
+<h3 style="padding-top: 10px;">Search for Quotes</h3>
+<%= form_tag search_quotes_path, method: :get do %>
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= text_field_tag :quote_query, params[:quote_query], placeholder: 'Enter a quote or keyword', class: "form-control" %>
+  </div>
+  <%= submit_tag 'Search Quotes', class: "btn btn-primary" %>
+<% end %>

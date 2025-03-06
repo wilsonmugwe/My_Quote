@@ -1,0 +1,29 @@
+<h1>Admin Dashboard</h1>
+<p>Welcome to the admin dashboard, <%= current_user.fname %>!</p>
+
+<h2 class="text-blue">Active Users</h2>
+<% if @active_users.any? %>
+  <% @active_users.each do |user| %>
+    <%= render 'users/user_management', user: user %>
+  <% end %>
+<% else %>
+  <p>No active users.</p>
+<% end %>
+
+<h2 class="text-red">Suspended Users</h2>
+<% if @suspended_users.any? %>
+  <% @suspended_users.each do |user| %>
+    <%= render 'users/user_management', user: user %>
+  <% end %>
+<% else %>
+  <p>No suspended users.</p>
+<% end %>
+
+<h2 class="text-red">Banned Users</h2>
+<% if @banned_users.any? %>
+  <% @banned_users.each do |user| %>
+    <%= render 'users/user_management', user: user %>
+  <% end %>
+<% else %>
+  <p>No banned users.</p>
+<% end %>

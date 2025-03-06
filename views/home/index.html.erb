@@ -1,0 +1,45 @@
+<style>
+  .categories-section, .recent-quotes-section {
+    padding-top: 0.5rem; /* Reduce top padding for both sections */
+    margin-top: 0; /* Remove any top margin for both sections */
+  }
+
+  .categories-section h2, .recent-quotes-section h2 {
+    margin-top: 0; /* Remove any top margin for both headings */
+  }
+</style>
+
+
+<div class="container mt-4">
+  <!-- Welcoming Message -->
+  <div class="welcome-message text-center mb-4">
+    <h1>Welcome to MyQuote</h1>
+    <p>Collect and share your favorite philosophical quotes.</p>
+  </div>
+
+  <!-- Categories Section -->
+  <div class="categories-section mb-4">
+    <h2 style="color: white;">Explore Categories</h2>
+    <ul class="list-group">
+      <% @categories.each do |category| %>
+        <li class="list-group-item">
+          <%= link_to category.category_name, category_quotes_path(category), class: "text-black" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <!-- Recently Added Quotes Section -->
+  <div class="recent-quotes-section mb-4">
+    <h2>Recently Added Quotes</h2>
+    <ul class="list-group">
+      <% @quotes.last(5).each do |quote| %>
+        <li class="list-group-item">
+          <strong><%= quote.quote %></strong> - 
+          <em><%= quote.philosopher.present? ? quote.philosopher.fname : 'Unknown' %></em>
+          <p><small><%= quote.created_at.strftime("%B %d, %Y") %></small></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

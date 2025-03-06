@@ -1,0 +1,145 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ body {
+    background-color: rgb(16, 2, 2) !important;
+    color: white !important; 
+  }
+  
+  
+  a {
+    color: rgb(202, 93, 205);
+  }
+
+  .text-black {
+    color: black; 
+  }
+
+  .text-purple {
+    color: rgb(123, 2, 175); 
+  }
+  .user-info {
+    font-size: 18px; /* Adjust this value to increase/decrease font size */
+  }
+  
+  .user-detail {
+    margin-bottom: 10px; /* Adjusts the spacing between details */
+  }
+  
+  .text-red {
+    color: rgb(226, 36, 7); 
+  }
+
+  .text-blue {
+    color: rgb(180, 180, 228); 
+  }
+
+
+
+  .text-purple2 {
+    color: rgb(157, 21, 216); 
+  }
+
+  .nav-link {
+    color: rgb(109, 4, 154);
+  }
+  
+  .nav-link:hover {
+    color: #2a0442; 
+  }
+  
+  .navbar-brand {
+    color: rgb(176, 5, 249); 
+  }
+  
+  .navbar-brand:hover {
+    color: #2a0442; 
+  }
+  
+
+
+  .quote {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: black;
+  }
+  
+  .quote-text {
+    font-style: italic;
+    font-size: 1.2em;
+    color: rgb(176, 5, 249);
+  }
+  
+  .quote-publication,
+  .quote-is-public,
+  .quote-comments {
+    color: rgb(176, 5, 249);
+    font-size: 1.2em;
+  }
+  
+  .welcome-message {
+    color: rgb(176, 5, 249);
+  }
+  
+  .categories-section {
+    background-color: #6a0dad;; 
+    padding: 20px; 
+    border-radius: 5px; 
+  }
+
+  .recent-quotes-section {
+    background-color: #6a0dad; 
+    color: white; 
+    padding: 15px; 
+    border-radius: 5px; 
+  }
+
+  h2 {
+    margin-top: 3em; /* Adjust this value for more or less space above the heading */
+    margin-bottom: 2em; /* Adjust this value for space below the heading */
+  }
+
+  .user-section {
+    margin-bottom: 4em; /* Adjust this value for space between user sections */
+  }
+  
+  
+  
+  
+  /* Increase font size for the main heading */
+  .container h1 {
+    font-size: 2.5em; 
+  }
+
+  /* Increase font size for secondary headings */
+  .container h2 {
+   font-size: 2em; 
+  }
+
+  /* Increase font size for paragraphs */
+  .container p {
+    font-size: 1.2em; 
+  }
+
+  /* Increase font size for list items */
+  .container ul li,
+  .container ol li {
+    font-size: 1.1em; 
+  }
+
+  

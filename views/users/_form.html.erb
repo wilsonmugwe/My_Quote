@@ -1,0 +1,44 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% user.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.label :fname, "First Name", class: "form-label" %>
+    <%= form.text_field :fname, placeholder: 'First Name', class: 'form-control' %>
+  </div>
+
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.label :lname, "Last Name", class: "form-label" %>
+    <%= form.text_field :lname, placeholder: 'Last Name', class: 'form-control' %>
+  </div>
+
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.label :email, "Email Address", class: "form-label" %>
+    <%= form.email_field :email, placeholder: 'Email Address', class: 'form-control' %>
+  </div>
+
+  <div class="form-group" style="padding-bottom: 10px;">
+    <%= form.label :password, "Password", class: "form-label" %>
+    <%= form.password_field :password, placeholder: 'Choose a strong password', class: 'form-control' %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :is_admin, value: false %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :status, value: "active" %> <!-- Make sure to match the enum value if it's active -->
+  </div>
+
+  <div>
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>

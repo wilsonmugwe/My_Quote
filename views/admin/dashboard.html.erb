@@ -1,0 +1,36 @@
+<h1>Admin Dashboard</h1>
+<p>Welcome to the admin dashboard, <%= current_user.fname %>!</p>
+
+<h2>Active Users</h2>
+<% @active_users.each do |user| %>
+  <div>
+    <p><strong><%= user.fname %> <%= user.lname %></strong> - <%= user.email %></p>
+    <p>Status: <%= user.status.capitalize %></p>
+    <%= link_to 'Suspend', update_status_user_path(user, status: 'suspended'), method: :patch %> |
+    <%= link_to 'Ban', update_status_user_path(user, status: 'banned'), method: :patch %> |
+    <%= link_to 'Toggle Admin', toggle_admin_user_path(user), method: :patch %> |
+    <%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+
+<h2>Suspended Users</h2>
+<% @suspended_users.each do |user| %>
+  <div>
+    <p><strong><%= user.fname %> <%= user.lname %></strong> - <%= user.email %></p>
+    <p>Status: <%= user.status.capitalize %></p>
+    <%= link_to 'Activate', update_status_user_path(user, status: 'active'), method: :patch %> |
+    <%= link_to 'Toggle Admin', toggle_admin_user_path(user), method: :patch %> |
+    <%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+
+<h2>Banned Users</h2>
+<% @banned_users.each do |user| %>
+  <div>
+    <p><strong><%= user.fname %> <%= user.lname %></strong> - <%= user.email %></p>
+    <p>Status: <%= user.status.capitalize %></p>
+    <%= link_to 'Activate', update_status_user_path(user, status: 'active'), method: :patch %> |
+    <%= link_to 'Toggle Admin', toggle_admin_user_path(user), method: :patch %> |
+    <%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>

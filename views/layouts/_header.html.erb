@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MyQuote</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- General Navigation for All Users -->
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Quotes", quotes_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About", about_path, class: "nav-link" %>
+        </li>
+
+        <!-- Authentication Links for All Users -->
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Sign Out", sign_out_path, method: :delete, data: { confirm: 'Are you sure you want to sign out?' }, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign In", sign_in_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up", sign_up_path, class: "nav-link" %>
+          </li>
+        <% end %>
+
+        <!-- Admin Dropdown Menu -->
+        <% if user_signed_in? && current_user.is_admin? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Admin Dashboard", admin_dashboard_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Manage Users", manage_users_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Manage Quotes", quotes_path, class: "dropdown-item" %></li>
+            </ul>
+          </li>
+        <% end %>
+
+        <!-- Standard User Dropdown Menu -->
+        <% if user_signed_in? && !current_user.is_admin? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "My Profile", profile_path, class: "dropdown-item" %></li>
+              <li><%= link_to "My Quotes", my_quotes_quotes_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Add New Quote", new_quote_path, class: "dropdown-item" %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+
+      <!-- Optional Search Form -->
+      <form class="d-flex" role="search" action="<%= search_quotes_path %>" method="get">
+        <input class="form-control me-2" type="search" name="quote_query" placeholder="Search quotes" aria-label="Search" value="<%= params[:quote_query] %>">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Quotes</h1>
+
+<div id="quotes">
+  <% if @quotes.any? %>
+    <% @quotes.each do |quote| %>
+      <div class="quote-item">
+        <%= render partial: "quote", locals: { quote: quote } %> <!-- Assuming you have a partial named _quote.html.erb -->
+        <p>
+          <%= link_to "Show this quote", quote_path(quote) %>
+          <% if current_user == quote.user || (current_user&.is_admin) %>
+            <%= link_to "Delete", quote_path(quote), method: :delete, data: { confirm: "Are you sure you want to delete this quote?" }, class: "text-danger" %>
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No quotes found. <%= link_to "Add a New Quote", new_quote_path %> to get started!</p>
+  <% end %>
+</div>
+
+<%= link_to "New quote", new_quote_path %>

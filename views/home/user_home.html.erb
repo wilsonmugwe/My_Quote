@@ -1,0 +1,24 @@
+<h1 class="text-purple2">Your Home Page</h1>
+<p style="color: green"><%= notice %></p>
+
+<p style="font-size: 24px; margin-bottom: 20px;">Hello, <%= current_user.fname %>!</p> <!-- Increased font size -->
+
+<h3 style="margin-bottom: 20px;">Your Quotes</h3>
+
+<div style="margin-bottom: 20px;">
+  <% if @quotes.present? %>
+    <ul style="margin-bottom: 20px;">
+      <% @quotes.each do |quote| %>
+        <li><%= quote.quote %> - <%= quote.philosopher.fname if quote.philosopher %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p style="margin-bottom: 20px;">You have no quotes yet.</p>
+  <% end %>
+</div>
+
+<div style="margin-top: 20px;">
+  <%= link_to 'Add a New Quote', new_quote_path, class: 'btn btn-primary' %>
+</div>
+
+<br>

@@ -1,0 +1,2 @@
+module QuotesCategoriesHelper
+end

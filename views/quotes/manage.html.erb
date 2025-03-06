@@ -1,0 +1,31 @@
+<h1>Manage Quotes</h1>
+
+<% if @quotes.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Quote</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @quotes.each do |quote| %>
+        <tr>
+          <td><%= quote.quote %></td>
+          <td><%= quote.philosopher.present? ? quote.philosopher.name : 'Unknown' %></td>
+          <td><%= quote.category.present? ? quote.category.name : 'No Category' %></td>
+          <td><%= quote.is_public? ? "Public" : "Private" %></td>
+          <td>
+            <%= link_to 'Edit', edit_quote_path(quote) %> |
+            <%= link_to 'Delete', quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No quotes available to manage.</p>
+<% end %>

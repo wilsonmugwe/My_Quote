@@ -1,0 +1,16 @@
+<!-- app/views/users/profile.html.erb -->
+<div class="profile">
+  <h1><%= @user.fname %>'s Profile</h1>
+  <p><strong>Email:</strong> <%= @user.email %></p>
+  <p><strong>Member Since:</strong> <%= @user.created_at.strftime("%B %d, %Y") %></p>
+
+  <h2>My Quotes</h2>
+  <ul class="list-group">
+    <% @quotes.each do |quote| %>
+      <li class="list-group-item">
+        <strong><%= quote.quote %></strong> - <em><%= quote.philosopher ? quote.philosopher.fname : 'Unknown' %></em>
+        <p><small><%= quote.created_at.strftime("%B %d, %Y") %></small></p>
+      </li>
+    <% end %>
+  </ul>
+</div>

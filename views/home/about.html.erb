@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <h1>About My Quote</h1>
+  <p>My Quote is a platform designed for quote lovers, allowing users to collect, share, and explore philosophical insights and wisdom from various thinkers.</p>
+
+  <h2>What is My Quotes?</h2>
+  <p>My Quotes is a dedicated space for users to collect, manage, and reflect on their favorite quotes. It allows you to:</p>
+  <ul>
+    <li><strong><%= link_to 'Curate Your Collection', quotes_path %></strong>: Save quotes from various philosophers, authors, and influential figures in one place.</li>
+    <li><strong><%= link_to 'Personalize Your Experience', my_quotes_quotes_path %></strong>: Add notes to your quotes, categorize them, or even share them with others.</li>
+    <li><strong><%= link_to 'Explore Quotes', quotes_path %></strong>: Discover new quotes by browsing through categories or searching for specific themes or authors.</li>
+  </ul>
+
+  <h2>How to Use My Quotes</h2>
+  <ol>
+    <li><strong><%= link_to 'Sign Up', sign_up_path %></strong>: Create an account to start building your personal quote collection.</li>
+    <li><strong><%= link_to 'Add Quotes', new_quote_path %></strong>: Find quotes you love and add them to your profile.</li>
+    <li><strong><%= link_to 'Manage Your Quotes', my_quotes_quotes_path %></strong>: Edit or delete quotes as your preferences change.</li>
+    <li><strong><%= link_to 'Explore', quotes_path %></strong>: Browse through the collection of quotes added by others and find inspiration.</li>
+  </ol>
+
+  <h2>Why Use My Quotes?</h2>
+  <p>Whether you’re a student, a writer, or someone who appreciates the power of words, My Quotes offers a unique platform to connect with ideas that inspire you.</p>
+
+  <h2>Quick Links</h2>
+  <ul>
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'Sign Up', sign_up_path %></li>
+    <li><%= link_to 'Sign In', sign_in_path %></li>
+  </ul>
+</div>
+
